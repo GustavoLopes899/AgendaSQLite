@@ -10,15 +10,17 @@ public class Contato implements Serializable {
     private String fone_2;
     private String email;
     private int favorito = 0;
+    private String aniversario;
 
     public Contato() {
     }
 
-    public Contato(String nome, String fone_1, String fone_2, String email) {
+    public Contato(String nome, String fone_1, String fone_2, String email, String aniversario) {
         this.nome = nome;
         this.fone_1 = fone_1;
         this.fone_2 = fone_2;
         this.email = email;
+        this.aniversario = aniversario;
     }
 
 
@@ -78,5 +80,13 @@ public class Contato implements Serializable {
 
     public void setFavorito(int favorito) {
         this.favorito = favorito;
+    }
+
+    public String getAniversario() {
+        return aniversario;
+    }
+
+    public void setAniversario(String aniversario) {
+        this.aniversario = aniversario;
     }
 }
