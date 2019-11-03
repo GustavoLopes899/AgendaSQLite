@@ -1,12 +1,12 @@
 package br.edu.ifsp.agendasqlite.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import br.edu.ifsp.agendasqlite.R;
 import br.edu.ifsp.agendasqlite.data.ContatoDAO;
@@ -39,17 +39,18 @@ public class CadastroActivity extends AppCompatActivity {
             ContatoDAO dao = new ContatoDAO(this);
 
             String nome = ((EditText) findViewById(R.id.editTextNome)).getText().toString();
-            String fone = ((EditText) findViewById(R.id.editTextFone)).getText().toString();
+            String fone1 = ((EditText) findViewById(R.id.editTextFone1)).getText().toString();
+            String fone2 = ((EditText) findViewById(R.id.editTextFone2)).getText().toString();
             String email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
 
-            Contato c = new Contato(nome,fone,email);
+            Contato c = new Contato(nome, fone1, fone2, email);
 
             int idContato = (int) dao.incluirContato(c);
             c.setId(idContato);
 
             MainActivity.adapter.adicionaContatoAdapter(c);
 
-            Toast.makeText(getApplicationContext(),"Contato inserido",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Contato inserido", Toast.LENGTH_LONG).show();
 
             finish();
 
@@ -58,7 +59,6 @@ public class CadastroActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }
